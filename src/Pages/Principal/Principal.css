@@ -1,0 +1,39 @@
+.container {
+    background-color: #080E1C;
+    height: 80%;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+   align-items: center; 
+   justify-content: center;
+}
+
+.principalText {
+    width: 400px;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-size: 40px;
+    background-color: '#FFFFFF';
+}
+
+h2 {
+    font-size: 25px;
+    color: '#FF6947'
+}
+
+h3 {
+    font-size: 15px;
+    color: '#bbbbbb'
+}
+
+div{
+    box-sizing:border-box;
+  }
+
+img {
+    width: 250px;
+    height: 300px;    
+}
