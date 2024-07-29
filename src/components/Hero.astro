@@ -1,6 +1,5 @@
 ---
-import heroImage from '@assets/images/Aaron.jpeg';
-import { Image } from 'astro:assets';
+import aaronImage from '/public/Aaron.jpeg';
 ---
 
 <section
@@ -14,11 +13,10 @@ import { Image } from 'astro:assets';
 		</div>
 	</div>
 	<div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
-		<Image
+		<img
 			title="When I was searching for a picture, this was the first one I found, and I thought it would be funny to put here."
-			src={heroImage}
+			src={aaronImage.src}
 			alt="Super boring developer"
-			format="png"
 			width={500}
 			height={500}
 			loading="eager"
