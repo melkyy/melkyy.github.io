@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/BlogLayout.astro';
+---
+
+<Layout isBlog={false}>
+	<ul class="mb-20 mt-10 dark:divide-white">
+		<li class="cursor-pointer pb-6 sm:pb-4">
+			<div
+				class="flex items-center space-x-4 rtl:space-x-reverse"
+				onclick="window.location.href = 'melkyy.github.io/blog/conagua-satellite'"
+			>
+				<div class="min-w-0 flex-1">
+					<p class="truncate text-2xl text-xl text-orange">
+						Chrome Extension to view the weather in Mexico
+					</p>
+					<p class="text-sm font-light text-black dark:text-white">27 JUL 2024</p>
+					<p class="text-lg text-black dark:text-white">
+						View satellite images of Mexico to check for hurricanes or see if it will rain in my
+						location.
+					</p>
+				</div>
+			</div>
+		</li>
+	</ul>
+</Layout>

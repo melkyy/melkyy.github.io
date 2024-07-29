@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+💫 This is a free template to make your portfolio website using **[Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Dark mode
+![Dark mode](https://github.com/veranikabarel/astro-portfolio/assets/48052206/240ab82d-8896-412e-8f52-5cf10d42b1db)
+### Light mode
+![Light mode](https://github.com/veranikabarel/astro-portfolio/assets/48052206/bfa88b30-6dcf-4d5f-bf28-efc3caa27d0f)
+### Lighthouse report
+![Lighthouse report](https://github.com/veranikabarel/astro-portfolio/assets/48052206/e7ad23a4-1a9b-477e-a13e-a321ce6bd3d6)
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Demo](#demo)
+- [Features](#features)
+- [Project structure](#project-structure)
+- [Commands](#commands)
+- [Contributing](#contributing)
+- [Credits](#credits)
 
-### `npm start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📌 [https://astro-fe-portfolio.netlify.app/](https://astro-fe-portfolio.netlify.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+✔️ Integration with **Tailwind CSS** ([@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)) supporting **Dark mode**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✔️ Uses the following integrations:
 
-### `npm run build`
+- @astrojs/mdx
+- @astrojs/image
+- @astrojs/tailwind - with prettier class sorting plugin
+- @astro-icon
+- @astro-seo
+- @astro-navbar
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+✔️([@Playwright](https://github.com/microsoft/playwright)) e2e tests are setted up.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🔜 Blog with frontmatter (title, description, author, date, image, tags) and RSS feed, sitemap and robots.txt
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🔜 404 error page
 
-### `npm run eject`
+## Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Inside of your Astro project, you'll see the following folders and files:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+/
+├── public/
+│   └── favicon.ico
+|   ├── hero.png
+|   └── ...
+├── src/
+|   ├── assets/
+|   |   ├── images/
+│   │   |   ├── hero.png
+|   |   |   └── ...
+│   ├── components/
+│   │   ├── ui/
+│   │   |   ├── BackToTop.astro
+|   |   |   └── ...
+│   │   ├── About.astro
+│   │   ├── Contact.astro
+|   |   └── ...
+│   ├── content/
+│   │   ├── projects/
+│   │   │   ├── project-1.md
+│   │   │   ├── project-1.md
+│   │   │   └── ...
+│   │   └-- config.ts
+│   ├── layouts/
+│   │   ├── Layout.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   ├── tests/
+│   │   ├── index.spec.ts
+├── package.json
+├── astro.config.mjs
+└── ...
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Astro looks for `.astro`, `.md` or `.mdx` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`src/components/` is where we put any Astro components and similarly `src/layouts/` for layouts.
 
-## Learn More
+Images can be placed in `src/images/`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Blog and documentation content are created as collections of Markdown or MDX files in `src/content`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Any static assets, eg. images, can be placed in the `public/` directory.
 
-### Code Splitting
+## Commands
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+All commands are run from the root of the project, from a terminal:
 
-### Analyzing the Bundle Size
+| Command             | Action                                             |
+| :------------------ | :------------------------------------------------- |
+| `yarn`              | Installs dependencies                              |
+| `yarn dev`          | Starts local dev server at `localhost:3000`        |
+| `yarn build`        | Build your production site to `./dist/`            |
+| `yarn preview`      | Preview your build locally, before deploying       |
+| `yarn astro ...`    | Run CLI commands like `astro add`, `astro preview` |
+| `yarn astro --help` | Get help using the Astro CLI                       |
+| `yarn test:e2e`     | Run Playwright tests                               |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributing
 
-### Making a Progressive Web App
+If you have any idea, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
+That would be very useful for all of us and we would be happy to listen and take action.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Credits
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Assets designed by (Freepik)[www.freepik.com].

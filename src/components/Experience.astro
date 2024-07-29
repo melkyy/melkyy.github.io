@@ -1,0 +1,53 @@
+---
+import TimeLine from '@components/ui/TimeLine';
+---
+
+<section
+	data-testid="Experience"
+	id="experience"
+	class="flex h-fit flex-col items-center gap-2 text-black dark:text-white lg:mb-40"
+>
+	<div class="flex">
+		<h2 class="font-monospace text-2xl text-orange lg:text-4xl">Experience</h2>
+	</div>
+	<div class="flex">
+		<span class="mb-10 h-1 w-10 bg-orange"></span>
+	</div>
+
+	<div class="flex-item flex">
+		<TimeLine
+			client:load
+			items={[
+				{
+					id: 1,
+					title: 'Full stack developer',
+					location: 'Navojoa, Sonora, Mexico.',
+					company: 'ACTI (Instituto Tecnologico de sonora)',
+					date: 'Mar. 2015 – Oct. 2018',
+					languages: 'C#',
+					description:
+						'I developed ASP.NET web applications and .NET Core applications with Angular. I developed an ASP.NET app that generates exams in PDF with questions that teachers add within the application. I also developed a forum for parents and a website for uploading articles in the same application, which was created using .NET Core and Angular.',
+				},
+				{
+					id: 2,
+					title: 'Full stack developer',
+					location: 'Navojoa, Sonora, Mexico.',
+					company: 'Almada Technologies',
+					date: 'Dec. 2019 – Jan. 2022',
+					languages: 'C#',
+					description:
+						'I developed Node.js applications with Vue.js. I created a management application that tracks how much food the animals consumed, the payments, and generates a monthly report.',
+				},
+				{
+					id: 3,
+					company: 'PRODIGIA',
+					location: 'Hermosillo, Sonora, Mexico.',
+					date: 'Feb. 2022 – Present',
+					languages: 'C#',
+					description:
+						'I have worked on web applications and mobile applications focused on fintech. I use Node.js for the backend and React and React Native for the front end and mobile, respectively. The application registers a user and creates an account number for payments.',
+				},
+			]}
+		/>
+	</div>
+</section>

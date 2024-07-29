@@ -1,0 +1,37 @@
+---
+import Button from '@components/ui/Button.astro';
+import ToggleTheme from '@components/ui/ToggleTheme.astro';
+import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
+
+export interface LayoutProps {
+	isBlog: boolean;
+}
+
+const { isBlog = true } = Astro.props as LayoutProps;
+---
+
+<header class="not-format mb-4 w-full lg:mb-6">
+	<address class="mb-6 flex w-full items-center not-italic">
+		<div class="text-gray-900 mr-3 inline-flex w-full items-center text-sm dark:text-white">
+			<Astronav>
+				<div class="flex w-full justify-between">
+					<div class="flex-1">
+						<Button size={'sm'} name="Download CV" onClick="window.location.href = 'melkyy.github.io/#projects';"
+							>Portfolio</Button
+						>
+						{
+							isBlog ? (
+								<Button size={'sm'} name="Download CV" onClick="window.location.href = 'melkyy.github.io/blog';">
+									Blog
+								</Button>
+							) : null
+						}
+					</div>
+					<div class="flex-none">
+						<ToggleTheme />
+					</div>
+				</div>
+			</Astronav>
+		</div>
+	</address>
+</header>

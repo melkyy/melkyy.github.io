@@ -1,0 +1,48 @@
+---
+import Navbar from '@components/NavBarBlog.astro';
+import { SEO } from 'astro-seo';
+
+export interface LayoutProps {
+	title: string;
+	isBlog: boolean
+}
+
+const { title = 'Aaron Rodriguez | Software Engineer', isBlog = true } = Astro.props as LayoutProps;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth" data-testid="html">
+	<head>
+		<SEO title="Aaron's Blog" description="My blog for tech curiosity." />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<title>{title}</title>
+	</head>
+	<body
+		class="pb-16 pt-8 text-white antialiased dark:bg-black xs:text-[16px] md:text-[18px] lg:pb-24 lg:pt-16 font-monospace"
+	>
+		<div class="mx-auto flex max-w-screen-xl justify-between px-4">
+			<article
+				class="format format-sm sm:format-base lg:format-lg format-blue dark:format-invert mx-auto w-full max-w-2xl"
+			>
+				<Navbar isBlog={isBlog}/>
+				<slot />
+				<style is:global>
+					/* Improve Page speed */
+					/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+					img {
+						content-visibility: auto;
+					}
+                    body: {
+                        font-family: 'monospace';
+                    }
+                    
+				</style>
+			</article>
+		</div>
+	</body>
+</html>
