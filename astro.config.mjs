@@ -7,6 +7,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://melkyy.github.io',
+  output: "static",
     integrations: [tailwind(), mdx(), icon({
     include: {
       mdi: ["*"]
