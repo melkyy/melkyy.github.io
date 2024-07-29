@@ -1,3 +1,7 @@
+---
+import { useStore } from '@nanostores/react';
+---
+
 <div class="theme-switch-wrapper md:flex md:items-center">
 	<label
 		data-testid="theme-switch"
@@ -29,7 +33,13 @@
 </style>
 
 <script>
+	import { isDark } from '../../themeStore';
+
 	document.addEventListener('DOMContentLoaded', function ready() {
+		const button = document.querySelector(
+			'.theme-switch input[type="checkbox"]'
+		) as HTMLInputElement;
+
 		const switchTheme = () => {
 			document.documentElement.classList.toggle('dark');
 			if (document.documentElement.classList.contains('dark')) {
@@ -43,5 +53,10 @@
 		) {
 			switchTheme();
 		}
+
+		button.addEventListener('click', () => {
+			switchTheme();
+			isDark.set(!(isDark.get()));
+		});
 	});
 </script>
