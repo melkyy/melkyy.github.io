@@ -16,12 +16,12 @@ const { isBlog = true } = Astro.props as LayoutProps;
 			<Astronav>
 				<div class="flex w-full justify-between">
 					<div class="flex-1">
-						<Button size={'sm'} name="Download CV" onClick="window.location.href = 'melkyy.github.io/#projects';"
+						<Button size={'sm'} name="Download CV" onClick="window.location.href = '/#projects';"
 							>Portfolio</Button
 						>
 						{
 							isBlog ? (
-								<Button size={'sm'} name="Download CV" onClick="window.location.href = 'melkyy.github.io/blog';">
+								<Button size={'sm'} name="Download CV" onClick="window.location.href = '/blog';">
 									Blog
 								</Button>
 							) : null
