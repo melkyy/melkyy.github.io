@@ -1,6 +1,10 @@
 ---
 import Layout from '../../layouts/BlogLayout.astro';
 import aaronImage from '/public/aaron-blog.jpg';
+import mexicoSatellite from '/public/conagua/satellite.jpg';
+import conaguawebsite from '/public/conagua/website.png';
+import animationGift from '/public/conagua/Animation.gif';
+import Exanple from '/public/conagua/example.png';
 ---
 
 <Layout>
@@ -9,7 +13,12 @@ import aaronImage from '/public/aaron-blog.jpg';
 			<div class="text-gray-900 mr-3 inline-flex items-center text-sm dark:text-white">
 				<img class="mr-4 h-16 w-16 rounded-full" src={aaronImage.src} alt="Jese Leos" />
 				<div>
-					<a href="#" rel="author" class="text-xl font-bold">Aaron Rodriguez</a>
+					<a
+						href="https://www.linkedin.com/in/aaron-melquisedek-rodriguez-ortiz-858704119/"
+						target="_blank"
+						rel="author"
+						class="text-xl font-bold">Aaron Rodriguez</a
+					>
 					<p>Software Engineer</p>
 					<p class="text-gray-500 dark:text-gray-400 text-black">
 						<time datetime="2022-02-08" title="February 8th, 2022">Jul. 07, 2024</time>
@@ -18,14 +27,89 @@ import aaronImage from '/public/aaron-blog.jpg';
 			</div>
 		</address>
 		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
-			Check rain on mexico with satellite weather maps chrome extension.
+			Check Mexico’s Rain Forecasts Using Satellite Maps on Chrome
 		</h1>
 	</header>
 	<article class="text-black dark:text-white">
-		<p class="v mb-10">This blog Is meant to meet every aspects of software development</p>
+		<img src={mexicoSatellite.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Motivation
+		</h1>
 		<p class="mb-10">
-			My name is aaron rodriguez an I'm going to explain about how I create a chrome extension about
-			how can check if will rain
+			When I was a kid, I lived in a place with many hurricanes. To keep track of the next
+			hurricane, we used a website that showed current satellite images and forecasts. The website,
+			named Conagua, a government commission managing all weather-related information, at present I
+			recalled this resource recently because I was curious about when it would rain since my town
+			is always drought and hot as hell.
+		</p>
+		<p class="mb-10">So, I thought about to create a google extension for that.</p>
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Tools
+		</h1>
+		<ul class="mb-10">
+			<li>-A computer lol.</li>
+		</ul>
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			How I did it
+		</h1>
+		<p class="mb-10">
+			My first task is to find the weather in Mexico. I checked Google for ways to display satellite
+			images. Many websites offer free APIs, but they are limited by the number of API calls. For
+			example, if I retrieve the weather 100 times, the API will block the next call until a certain
+			time. If I want to make an unlimited number of calls, I have to pay for it, which I am not
+			looking to do.
+		</p>
+		<p class="mb-10">
+			The CONAGUA website does not have an API, but we will use the power of ✨Dev Tools✨ to find a
+			solution
+		</p>
+		<img src={conaguawebsite.src} class="mb-20" />
+		<p class="mb-10">
+			The CONAGUA website offers many options for viewing the weather, so I chose the satellite
+			images because it's easier to see what's happening in Mexico.
+		</p>
+		<p class="mb-10">When I inspected the satellite images, I found something interesting.</p>
+		<img src={animationGift.src} class="mb-20" />
+		<p class="mb-5">
+			They are using an url for show several images, something like that
+			("https://smn.conagua.gob.mx/MEDIA")
+		</p>
+		<p class="mb-10">
+			The 'li' tag is generating a range of dates within the 'fecha' attribute as numbers like
+			'202408050400', which represent the current date. Additionally, there is a function that
+			handles the URL of the image, displaying one image at a time every second, creating an
+			animation-like effect
+		</p>
+		<p class="mb-5">
+			So let's identify the date:<br />
+			<code> "202408050400" - 2024 = year, 08 = month, 05 = day, 0400 = time </code>
+		</p>
+		<p class="mb-10">
+			By identifying the number generation
+			<strong> I can use the URL and insert the numbers to display the image anywhere. </strong>
+		</p>
+		<p class="mb-10">
+			By joining the URL with the number and adding '.jpg' at the end, we get something like this: <br
+			/>
+			"https://smn.conagua.gob.mx/MEDIA/202408051440.jpg"
+		</p>
+		<p class="mb-10">
+			I tested the URL, and it works fine, but after a couple of minutes, the URL expires. I figured
+			out that the server only stores a few images with the current date and deletes the old images
+			after that, I drew a diagram to show how it works
+		</p>
+		<img src={Exanple.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Making the google extension
+		</h1>
+		<p class="mb-10 text-blue">
+			Now It is time to create the extension, I followed <a
+				class="font-extrabold leading-tight underline underline-offset-2"
+				href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world"
+				target="_blank">this tutorial</a
+			>
+			It is the Google extension documentation, and it describes how to create the first extension. Since
+			we will only be showing the satellite images, it will be enough.
 		</p>
 	</article>
 </Layout>
