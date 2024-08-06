@@ -5,6 +5,8 @@ import mexicoSatellite from '/public/conagua/satellite.jpg';
 import conaguawebsite from '/public/conagua/website.png';
 import animationGift from '/public/conagua/Animation.gif';
 import Exanple from '/public/conagua/example.png';
+import folder from '/public/conagua/folder.png';
+
 ---
 
 <Layout>
@@ -96,7 +98,7 @@ import Exanple from '/public/conagua/example.png';
 		<p class="mb-10">
 			I tested the URL, and it works fine, but after a couple of minutes, the URL expires. I figured
 			out that the server only stores a few images with the current date and deletes the old images
-			after that, I drew a diagram to show how it works
+			after that, I drew a diagram to show how it works.
 		</p>
 		<img src={Exanple.src} class="mb-20" />
 		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
@@ -111,5 +113,19 @@ import Exanple from '/public/conagua/example.png';
 			It is the Google extension documentation, and it describes how to create the first extension. Since
 			we will only be showing the satellite images, it will be enough.
 		</p>
+		<p class="mb-10 text-blue">
+			I created the files needed and my folder structure is this
+		</p>
+		<img src={folder.src} class="mb-20" />
+		<p class="mb-10 text-blue">
+			Let's check what every file does:
+			<br>
+			-cloud.png: the icon of the extension
+			<br>
+			-extension.js: this where will put our code
+			<br>
+			-moment.min.js
+		</p>
+		
 	</article>
 </Layout>
