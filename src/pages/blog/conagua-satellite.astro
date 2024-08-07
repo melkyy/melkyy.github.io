@@ -6,7 +6,10 @@ import conaguawebsite from '/public/conagua/website.png';
 import animationGift from '/public/conagua/Animation.gif';
 import Exanple from '/public/conagua/example.png';
 import folder from '/public/conagua/folder.png';
-
+import code1 from '/public/conagua/code1.png';
+import code2 from '/public/conagua/code2.png';
+import code3 from '/public/conagua/code3.png';
+import code4 from '/public/conagua/code4.png';
 ---
 
 <Layout>
@@ -32,7 +35,7 @@ import folder from '/public/conagua/folder.png';
 			Check Mexico’s Rain Forecasts Using Satellite Maps on Chrome
 		</h1>
 	</header>
-	<article class="text-black dark:text-white">
+	<article class="warp text-black dark:text-white">
 		<img src={mexicoSatellite.src} class="mb-20" />
 		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
 			Motivation
@@ -40,7 +43,7 @@ import folder from '/public/conagua/folder.png';
 		<p class="mb-10">
 			When I was a kid, I lived in a place with many hurricanes. To keep track of the next
 			hurricane, we used a website that showed current satellite images and forecasts. The website,
-			named Conagua, a government commission managing all weather-related information, at present I
+			named Conagua, a government commission managing all weather-related information. at present I
 			recalled this resource recently because I was curious about when it would rain since my town
 			is always drought and hot as hell.
 		</p>
@@ -93,7 +96,7 @@ import folder from '/public/conagua/folder.png';
 		<p class="mb-10">
 			By joining the URL with the number and adding '.jpg' at the end, we get something like this: <br
 			/>
-			"https://smn.conagua.gob.mx/MEDIA/202408051440.jpg"
+			"smn.conagua.gob.mx/MEDIA/202408051440.jpg"
 		</p>
 		<p class="mb-10">
 			I tested the URL, and it works fine, but after a couple of minutes, the URL expires. I figured
@@ -104,7 +107,7 @@ import folder from '/public/conagua/folder.png';
 		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
 			Making the google extension
 		</h1>
-		<p class="mb-10 text-blue">
+		<p class="text-blue mb-10">
 			Now It is time to create the extension, I followed <a
 				class="font-extrabold leading-tight underline underline-offset-2"
 				href="https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world"
@@ -113,18 +116,64 @@ import folder from '/public/conagua/folder.png';
 			It is the Google extension documentation, and it describes how to create the first extension. Since
 			we will only be showing the satellite images, it will be enough.
 		</p>
-		<p class="mb-10 text-blue">
-			I created the files needed and my folder structure is this
-		</p>
+		<p class="text-blue mb-10">I created the files needed and my folder structure is this:</p>
 		<img src={folder.src} class="mb-20" />
-		<p class="mb-10 text-blue">
+		<p class="text-blue mb-10">
 			Let's check what every file does:
-			<br>
-			-cloud.png: the icon of the extension
-			<br>
-			-extension.js: this where will put our code
-			<br>
-			-moment.min.js
+			<br />
+			<strong>-cloud.png:</strong> The extension icon.
+			<br />
+			<strong>-extension.js:</strong> This where will put our code for get the images and add an animation.
+			<br />
+			<strong>-popup.css:</strong> The extension Style.
+			<br />
+			<strong>-popup.html:</strong> The extension skeleton.
+			<br />
+			<strong>-extension.js:</strong> The extension configuration.
+			<br />
+		</p>
+		<p class="text-blue mb-10">
+			I'm only going to explain the code since it's a small extension and contains the main feature.
+			So, let's get going!
+		</p>
+		<p class="text-blue mb-20">
+			The code containts three steps: Begin, Load Images, Run Animation.
+		</p>
+		<img src={code1.src} class="mb-5" />
+		<p class="text-blue mb-20">
+			The first image shows the code for the 'begin' step. It includes a variable named CONAGUA_URL
+			which contains a URL we will use to get the images. Additionally, there is an event that is
+			triggered when the Google Chrome extension is opened, executing the functions that I will
+			explain.
+		</p>
+		<img src={code2.src} class="mb-5" />
+		<p class="text-blue mb-20">
+			There are two functions `pad2()` and `getImageUrl()` we will focus in the second function as
+			pad2 it just a helper. `getImageUrl` is a function that converts the current date in a format
+			that can be appened to the conagua url. It will return an array of numbers.
+		</p>
+		<img src={code3.src} class="mb-5" />
+		<p class="text-blue mb-5">
+			The next functions are `imageLoaded()` and `loadImages()`. The imageLoaded function uses the
+			variable imagesLoaded to count the number of images loaded. It checks if this variable has
+			reached 9, representing all the images. If the condition is true, the loader is hidden and the
+			images are shown.And lastly the `loadImages()` function that uses the array of numbers
+			representing dates and we create a image HTML element for every image, we set the syle and
+			adding the url appending the date that previously generated.
+		</p>
+		<p class="text-blue mb-20">
+			Lastly, the `loadImages()` function uses an array of numbers representing dates. For each
+			date, we create an image HTML element, set its style, and append the URL with the previously
+			generated date. Additionally we add an event to count the images that are loaded.
+		</p>
+		<img src={code4.src} class="mb-5" />
+		<p class="text-blue mb-20">
+			Finally, the runAnimation() function is used to hide the current image and show the next image
+			every half-second to create an animated effect.
+		</p>
+		<p class="text-blue mb-20">
+			Now, save the folder and open Google Chrome or Edge. Go to the extension options, enable
+			Developer Mode, and load the folder with your project. Then, check to see if it works
 		</p>
 		
 	</article>
