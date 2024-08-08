@@ -10,6 +10,7 @@ import code1 from '/public/conagua/code1.png';
 import code2 from '/public/conagua/code2.png';
 import code3 from '/public/conagua/code3.png';
 import code4 from '/public/conagua/code4.png';
+import extension from '/public/conagua/extension.gif';
 ---
 
 <Layout>
@@ -156,10 +157,10 @@ import code4 from '/public/conagua/code4.png';
 		<p class="text-blue mb-5">
 			The next functions are `imageLoaded()` and `loadImages()`. The imageLoaded function uses the
 			variable imagesLoaded to count the number of images loaded. It checks if this variable has
-			reached 9, representing all the images. If the condition is true, the loader is hidden and the
-			images are shown.And lastly the `loadImages()` function that uses the array of numbers
-			representing dates and we create a image HTML element for every image, we set the syle and
-			adding the url appending the date that previously generated.
+			reached 9, If the condition is true, the loader is hidden and the images are shown.And lastly
+			the `loadImages()` function that uses the array of numbers representing dates and we create a
+			image HTML element for every image, we set the syle and adding the url appending the date that
+			previously generated.
 		</p>
 		<p class="text-blue mb-20">
 			Lastly, the `loadImages()` function uses an array of numbers representing dates. For each
@@ -171,10 +172,22 @@ import code4 from '/public/conagua/code4.png';
 			Finally, the runAnimation() function is used to hide the current image and show the next image
 			every half-second to create an animated effect.
 		</p>
-		<p class="text-blue mb-20">
+		<p class="text-blue mb-10">
 			Now, save the folder and open Google Chrome or Edge. Go to the extension options, enable
-			Developer Mode, and load the folder with your project. Then, check to see if it works
+			Developer Mode, and load the folder with your project.
 		</p>
-		
+		<img src={extension.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Conclusion
+		</h1>
+		<p class="text-blue mb-10">
+			I've been learning to create a Google extension and do some web scraping with Dev Tools. The
+			extension is just a tool, and I won't publish it on the Chrome Web Store because a license
+			costs money. I'll keep it in my GitHub repository for anyone interested. <a
+				class="font-extrabold leading-tight underline underline-offset-2"
+				href="https://github.com/melkyy/smn-conagua-satelite-extension"
+				target="_blank">Github Project</a
+			>
+		</p>
 	</article>
 </Layout>
