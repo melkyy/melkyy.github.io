@@ -1,0 +1,193 @@
+---
+import Layout from '../../layouts/BlogLayout.astro';
+import aaronImage from '/public/aaron-blog.jpg';
+import hostingeraws from '/public/hostingeraws/hostingeraws.png';
+import cheap from '/public/hostingeraws/cheap.png';
+import portal from '/public/hostingeraws/portal.png';
+import s3 from '/public/hostingeraws/s3.png';
+import cforigin from '/public/hostingeraws/cforigin.png';
+import cfcache from '/public/hostingeraws/cfcache.png';
+import cfconfig from '/public/hostingeraws/cfconfig.png';
+import confWAF from '/public/hostingeraws/confWAF.png';
+import cfrequest from '/public/hostingeraws/cfrequest.png';
+import cfrequesting from '/public/hostingeraws/cfrequesting.png';
+import cfadding from '/public/hostingeraws/cfaddingssl.png';
+import hostingerssl from '/public/hostingeraws/hostingerssl.png';
+import hostingercaa from '/public/hostingeraws/hositngercaa.png';
+import success from '/public/hostingeraws/success.png';
+import cflistcert from '/public/hostingeraws/cflistcert.png';
+import cftakestime from '/public/hostingeraws/cftakestime.png';
+import addingdomainname from '/public/hostingeraws/addingdomainname.png';
+import forbiden from '/public/hostingeraws/forbiden.png';
+import bucketpermissions from '/public/hostingeraws/bucketpermissions.png';
+import cfpermissions from '/public/hostingeraws/cfpermissions.png';
+import cfCopy from '/public/hostingeraws/cfCopy.png';
+import finsih from '/public/hostingeraws/finsih.png';
+import BackToTop from '@components/ui/BackToTop.astro';
+---
+
+<Layout>
+	<header class="not-format mb-4 text-black dark:text-white lg:mb-6">
+		<address class="mb-6 flex items-center not-italic">
+			<div class="text-gray-900 mr-3 inline-flex items-center text-sm dark:text-white">
+				<img class="mr-4 h-16 w-16 rounded-full" src={aaronImage.src} alt="Jese Leos" />
+				<div>
+					<a
+						href="https://www.linkedin.com/in/aaron-melquisedek-rodriguez-ortiz-858704119/"
+						target="_blank"
+						rel="author"
+						class="text-xl font-bold">Aaron Rodriguez</a
+					>
+					<p>Software Engineer</p>
+					<p class="text-gray-500 dark:text-gray-400 text-black">
+						<time datetime="2022-02-08" title="February 8th, 2022">Oct. 16, 2024</time>
+					</p>
+				</div>
+			</div>
+		</address>
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			DIY Creating a website using hostinger and cloudfront.
+		</h1>
+	</header>
+	<article class="warp text-black dark:text-white">
+		<img src={hostingeraws.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Motivation.
+		</h1>
+		<p class="mb-10">
+			I'm interested in how can create a cheaper and scalable landing page using AWS since i'm broke
+			the only way to make creative things is when you are afraid about spend zillion of dollars
+			because you used AWS services badly so here I am.
+		</p>
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Buy a domain.
+		</h1>
+		<p class="mb-10">
+			The hardest obstacle in my career is figuring out what to name my cheap website and how much
+			it will cost. I’m not sure how it works with other services, but you typically buy a domain
+			for a year, and the cost changes depending on the top-level domain (.com or .net).
+		</p>
+		<img src={cheap.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Hostinger portal.
+		</h1>
+		<p class="mb-10">
+			When you've bought your domain, there will be a portal where you can manage it with a range of
+			options, but the most important one will be 'DNS/NameServers.
+		</p>
+		<img src={portal.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Making a website and store in s3 privately.
+		</h1>
+		<p class="mb-10">
+			Create a s3 bucket, upload an simple html page or build a react app, keep the s3 bucket
+			private, we will configure permissions later.
+		</p>
+		<img src={s3.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Creating a cloudfront distribution.
+		</h1>
+		<p class="mb-10">
+			This will be the front of our app. Why are we using CloudFront? You said it would be cheaper.
+			Sorry, dude, I lied. I'm not dumb enough to make the S3 website public—what if someone uses
+			your URL and floods it with GET requests? That wouldn’t be cheap. So, I’m using CloudFront, at
+			least to secure the requests, and if we get a lot of visitors, it’ll keep costs lower, and if
+			you want much more security, you could config WAF, but it misses my point.
+		</p>
+		<p class="mb-10">
+			Now "configure the Origin" section keep kida like this, on origin domain add your bucket.
+		</p>
+		<img src={cforigin.src} class="mb-20" />
+		<p class="mb-10">
+			In "default cache behaviour" we will only check HTTPS only, we will add a ssl certificate
+			later.
+		</p>
+		<img src={cfcache.src} class="mb-20" />
+		<p class="mb-10">In WAF section we chose Do not enable security protections.</p>
+		<img src={confWAF.src} class="mb-20" />
+		<p class="mb-10">
+			Now in the last section we chose "use only North America and Europe" we adding an "Alternative
+			domain name (CNAME)" with our domain name and in "Default root object" we add "/index.html"
+			and finally it's time to add a SSL certificate, click on "Request Certificate" to make one.
+		</p>
+		<img src={cfconfig.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Creating a public AWS SSL Certificate.
+		</h1>
+		<p class="mb-10">
+			Now we click next since the request a public certificate is selected. If you want to create a
+			private certificate It will cost 600$.
+		</p>
+		<img src={cfrequest.src} class="mb-20" />
+		<p class="mb-10">
+			We add our domain name in "Fully qualified domain name" and thats it, click on request.
+		</p>
+		<img src={cfrequesting.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Adding DNS record in hostinger.
+		</h1>
+		<p class="mb-10">
+			In hostinger in "DNS / Nameservers" section we add "DNS records" in CA domain textbox we
+			adding "amazon.com" and add another DNS record but now with "amazontrust.com".
+		</p>
+		<img src={hostingercaa.src} class="mb-20" />
+		<p class="mb-10">
+			Now we have to add "CNAME name" and "CNAME value" to our hostinger DNS records in order to
+			make aws approve our status always will be on "pending validation" if not add these CNAME in
+			hostinger.
+		</p>
+		<img src={cfadding.src} class="mb-20" />
+		<img src={hostingerssl.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Waiting for deploy...
+		</h1>
+		<p class="mb-10">
+			We check if request is approved, take a while if take more than 1 hour you failed in something.
+		</p>
+		<img src={success.src} class="mb-20" />
+		<p class="mb-10">
+			Now in cloud front "Settings" section we refresh and we will appear our SSL certificate YAY,
+			now we click on create and all set.
+		</p>
+		<img src={cflistcert.src} class="mb-20" />
+		<p class="mb-10">
+			Cloudfront takes time to deploy, so be patient if 10 minutes has passed something failed, now
+			in "Distribution domain name" will be our url to view our website, but we need to adding that
+			name on HOSTINGER in order to redirect our domain name.
+		</p>
+		<img src={cftakestime.src} class="mb-20" />
+		<p class="mb-10">
+			Create a CNAME and in the textbox target we add the cloudfront domain name and that's it
+			IMPORTANT !!!!! REMOVE "https://" OR WILL FAIL... IT TAKE A FEW MINUTES TO REFLECT ON OUR BROWSER.
+		</p>
+		<img src={addingdomainname.src} class="mb-20" />
+		<p class="mb-10">
+			Now got o browser and open your domain, if shows something like the image we did, that means
+			we can access the bucket but it's private so we need to add cloudfront permissions.
+		</p>
+		<img src={forbiden.src} class="mb-20" />
+		<h1 class="text-gray-900 mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl">
+			Adding cloudfront permission to bucket.
+		</h1>
+		<p class="mb-10">
+			We need to asign bucket permissions for cloudfront access to our website, we select our
+			cloudfront distribution and go to Origin section then select our origin and click on edit
+			button.
+		</p>
+		<img src={cfpermissions.src} class="mb-20" />
+		<p class="mb-10">
+			Now we click on Copy policy button and we go to s3 in order to adding permissions on s3.
+		</p>
+		<img src={cfCopy.src} class="mb-20" />
+		<p class="mb-10">
+			Lastly we need to add permissions to s3 for view our static website, go to s3 and
+			"Permissions" section then in "Bucket Policy" click on edit paste our policy and save changes.
+		</p>
+		<img src={bucketpermissions.src} class="mb-20" />
+		<p class="mb-10">
+			Now we check our website and presto!!
+		</p>
+		<img src={finsih.src} class="mb-20" />
+		<BackToTop />
+	</article>
+</Layout>
